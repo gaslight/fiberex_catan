@@ -23,8 +23,14 @@ config :fiberex_catan, FiberexCatanWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "xDPUxL2P/E3Bdk+DYKt+YltRxqZ2wVixTGpIsFyy/456OZq+Lb5/dgCx6kkgJU8B",
-  watchers: []
+  secret_key_base: "RfJdYspUAxo60LaxvdBLi/QXvYweSqr9XMEabMdCQFIPrRuTWNRbIsaVRet9Fnkd",
+  watchers: [
+    # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
+    node: [
+      "node_modules/vite/bin/vite.js",
+      cd: Path.expand("../assets", __DIR__)
+    ]
+  ]
 
 # ## SSL Support
 #

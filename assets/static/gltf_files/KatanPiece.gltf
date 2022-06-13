@@ -1,0 +1,142 @@
+{
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 3469320,
+      "target": 34962,
+      "byteStride": 12
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 3469320,
+      "byteLength": 1156440,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 4625760,
+      "byteLength": 3469320,
+      "target": 34962,
+      "byteStride": 12
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 289110,
+      "max": [
+        44,
+        44.071998596191406,
+        16.302000045776367
+      ],
+      "min": [
+        -47.369998931884766,
+        -35,
+        0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5125,
+      "count": 289110,
+      "max": [
+        289109
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 289110,
+      "max": [
+        0.7098039215686275,
+        0.7215686274509804,
+        0.6
+      ],
+      "min": [
+        0.7098039215686275,
+        0.7215686274509804,
+        0.6
+      ],
+      "type": "VEC3"
+    }
+  ],
+  "asset": {
+    "version": "2.0",
+    "generator": "Autodesk.Tinkercad"
+  },
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "metallicFactor": 0.5,
+        "roughnessFactor": 0.5
+      },
+      "name": "lambert2SG.001"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "mode": 4,
+          "attributes": {
+            "POSITION": 0,
+            "COLOR_0": 2
+          },
+          "indices": 1,
+          "material": 0
+        }
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "nodes": [
+        1
+      ],
+      "name": "Tinkercad GLTF Scene"
+    }
+  ],
+  "scene": 0,
+  "nodes": [
+    {
+      "name": "Mesh_Mesh_head_geo.001_lambert2SG.001",
+      "mesh": 0
+    },
+    {
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        2.220446049250313e-16,
+        -1,
+        0,
+        0,
+        1,
+        2.220446049250313e-16,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "children": [
+        0
+      ]
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "KatanPiece_data.bin",
+      "byteLength": 8095080
+    }
+  ]
+}
