@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :fiberex_catan, FiberexCatan.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "0psv0033",
   hostname: "localhost",
   database: "fiberex_catan_dev",
   stacktrace: true,
