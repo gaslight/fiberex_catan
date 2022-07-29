@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useLayoutEffect } from "react";
 import { useControls } from "leva";
 import WoodsTile from "../models/WoodsTile";
 import OreTile from "../models/OreTile";
@@ -9,25 +9,34 @@ import DesertTile from "../models/DesertTile";
 import Harbor from "../models/Harbor";
 import Road from "./Road";
 import socket from "../../js/user_socket.js";
+import Value2 from "../models/TileValues/Value2";
 
 import { calculateBoardPositions } from "../helperFunctions/BoardSetupFunctions";
 
 function Board() {
   const [tiles, setTiles] = useState([]);
   const { size } = useControls({ size: 45 });
+  const [map, setMap] = useState([]);
 
   const mappedPositions = useMemo(() => calculateBoardPositions(size), [size]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setTiles(mappedPositions);
     let channel = socket.channel("board:lobby", {});
-    channel.join();
+    channel.join()
+    .receive("ok", resp => setMap(resp))
+    .receive("error", resp => { console.log("Unable to join", resp) })
     channel.push("ping", { message: "This is a payload" });
   }, []);
+
+  useEffect(() => {
+    console.log(map);
+    }, [map]);
 
   return (
     <>
       {/* <Road /> */}
+      <Value2 />
       {tiles.map((piece, i) => {
         switch (piece.tileType) {
           case "woods":
