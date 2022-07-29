@@ -12,7 +12,7 @@ import socket from "../../js/user_socket.js";
 import Value2 from "../models/TileValues/Value2";
 
 import { calculateBoardPositions } from "../helperFunctions/BoardSetupFunctions";
-
+let channel = socket.channel("board:lobby", {});
 function Board() {
   const [tiles, setTiles] = useState([]);
   const { size } = useControls({ size: 45 });
@@ -22,9 +22,9 @@ function Board() {
 
   useLayoutEffect(() => {
     setTiles(mappedPositions);
-    let channel = socket.channel("board:lobby", {});
+    channel.on("board_state_updated", resp => setMap(resp))
     channel.join()
-    .receive("ok", resp => setMap(resp))
+    .receive("ok", resp => { console.log("Joined successfully", resp); })
     .receive("error", resp => { console.log("Unable to join", resp) })
     channel.push("ping", { message: "This is a payload" });
   }, []);
