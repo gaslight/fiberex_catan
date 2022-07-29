@@ -20,19 +20,19 @@ defmodule FiberexCatan.BoardTransformer do
     transformed_vertices =
       vertices
       |> Enum.map(fn {location, vertex_properties} ->
-      Map.put(vertex_properties, :location, location)
-    end)
+        Map.put(vertex_properties, :location, location)
+      end)
 
-      Map.put(board, :vertices, transformed_vertices)
+    Map.put(board, :vertices, transformed_vertices)
   end
 
   def transform_edges(%{edges: edges} = board) do
     transformed_edges =
       edges
       |> Enum.map(fn {location, edge_properties} ->
-      Map.put(edge_properties, :location, location)
-    end)
+        Map.put(edge_properties, :location, location)
+      end)
 
-      Map.put(board, :edges, transformed_edges)
+    Map.put(board, :edges, transformed_edges)
   end
 end
