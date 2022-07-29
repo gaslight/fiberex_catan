@@ -2,7 +2,6 @@ import "phoenix_html";
 import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
-import "../js/user_socket.js"
 
 // import { LiveSocket } from "phoenix_live_view";
 

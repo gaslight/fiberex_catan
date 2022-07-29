@@ -7,7 +7,7 @@ import Config
 # Run `mix help test` for more information.
 config :fiberex_catan, FiberexCatan.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "0psv0033",
   hostname: "localhost",
   database: "fiberex_catan_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
