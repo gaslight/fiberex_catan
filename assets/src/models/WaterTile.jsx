@@ -11,7 +11,7 @@ export default function WaterTile({ position }) {
   const ref = useRef();
 
   useEffect(() => {
-    console.log(ref);
+     ;
   }, []);
 
   return (

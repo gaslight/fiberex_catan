@@ -6,7 +6,9 @@ import BrickTile from "../models/BrickTile";
 import SheepTile from "../models/SheepTile";
 import WheatTile from "../models/WheatTile";
 import DesertTile from "../models/DesertTile";
+import Harbor from "../models/Harbor";
 import Road from "./Road";
+import socket from "../../js/user_socket.js";
 
 import { calculateBoardPositions } from "../helperFunctions/BoardSetupFunctions";
 
@@ -18,11 +20,14 @@ function Board() {
 
   useEffect(() => {
     setTiles(mappedPositions);
+    let channel = socket.channel("board:lobby", {});
+    channel.join();
+    channel.push("ping", { message: "This is a payload" });
   }, []);
 
   return (
     <>
-    <Road/>
+      {/* <Road /> */}
       {tiles.map((piece, i) => {
         switch (piece.tileType) {
           case "woods":
@@ -37,6 +42,8 @@ function Board() {
             return <WheatTile key={i} position={piece.position} />;
           case "desert":
             return <DesertTile key={i} position={piece.position} />;
+          case "harbor":
+            return <Harbor key={i} position={piece.position} />;
           default:
             return null;
         }

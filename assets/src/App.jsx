@@ -13,7 +13,7 @@ function App() {
           <Physics>
             <Sky />
             <OrbitControls makedefualt />
-            <ambientLight intensity={0.2} />
+            <ambientLight intensity={0.8} />
             <spotLight position={[0, 10, 200]} />
             <Board />
           </Physics>

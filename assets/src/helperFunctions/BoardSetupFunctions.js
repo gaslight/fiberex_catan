@@ -6,6 +6,7 @@ const calculateBoardPositions = (size) => {
     woods: 4,
     desert: 1,
     ore: 3,
+    //harbor: 1,
   };
 
   const positions = mockApiResponseForBoardPositions();
