@@ -10,12 +10,23 @@ import Harbor from "../models/Harbor"
 import Road from "./Road"
 import socket from "../../js/user_socket.js"
 import Value2 from "../models/TileValues/Value2"
+import Value3 from "../models/TileValues/Value3"
 
 import { calculateBoardPositions } from "../helperFunctions/BoardSetupFunctions"
 let channel = socket.channel("board:lobby", {})
 
-const valueMap = {
-  2: <Value2 />,
+// const valueMap = {
+//   2: <Value2 />,
+//   3: <Value3 />,
+// }
+
+const chitFactory = (val,x,y) => {
+  const valueMap = {
+    2: <Value2 x={x} y={y}/>,
+    3: <Value3 x={x} y={y}/>,
+  }
+  const chit = valueMap[val]
+  return chit
 }
 
 function Board() {
@@ -62,7 +73,7 @@ function Board() {
                 <WoodsTile
                   key={i}
                   position={position}
-                  tileValue={valueMap[2]}
+                  tileValue={chitFactory(2, -32.2, -44.4)}
                 />
               )
             case "ore":
