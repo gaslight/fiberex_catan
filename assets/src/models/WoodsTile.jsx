@@ -6,12 +6,14 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export default function WoodsTile({ ...props }) {
+  const renderProps = props.tileValue
   const group = useRef()
   const { nodes, materials } = useGLTF('../../static/gltf_files/WoodsTile.gltf')
   return (
     <group ref={group} {...props} dispose={null} rotation-x={-Math.PI/2}>
       <mesh castShadow receiveShadow geometry={nodes.mesh_0.geometry} material={nodes.mesh_0.material}
       material-color="green" />
+      {renderProps}
     </group>
   )
 }
