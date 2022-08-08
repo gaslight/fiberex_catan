@@ -6,21 +6,21 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import {useControls} from 'leva'
 
-export default function Model({ ...props }) {
-  const {x, y, z} = useControls({x: {
-    value: -32.2,
-    step: 0.2,
-  }, y: {
-    value: -44.4,
-    step: 0.2,
-  }, z: {
-    value: 10,
-    step: 0.2,
-  }})
+export default function Model({x, y }) {
+  // const {x, y, z} = useControls({x: {
+  //   value: -32.2,
+  //   step: 0.2,
+  // }, y: {
+  //   value: -44.4,
+  //   step: 0.2,
+  // }, z: {
+  //   value: 10,
+  //   step: 0.2,
+  // }})
   const group = useRef()
   const { nodes, materials } = useGLTF('/static/gltf_files/2.gltf')
   return (
-    <group position={[x, y , z]} ref={group} {...props} dispose={null} rotation-x={Math.PI/2} >
+    <group position={[x, y , 10]} ref={group} dispose={null} rotation-x={Math.PI/2} >
       <mesh geometry={nodes['catan_main_number-tokens014'].geometry}>
         <meshStandardMaterial attach="material" color="grey" />
       </mesh>
